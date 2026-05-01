@@ -8,6 +8,8 @@ View app in AI Studio: https://ai.studio/apps/c02d4706-82b6-4ca3-a144-d1902b8052
 
 ## Run Locally
 
+<html>AVX profile on X <a href= "https://avatars.githubusercontent.com/u/8032977?v=4&size=64" </a>
+
 **Prerequisites:**  Node.js
 
 
