@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "bio": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "displayName", "email", "role", "createdAt"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Thread category",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "icon": { "type": "string" },
+        "order": { "type": "integer" }
+      },
+      "required": ["name", "description", "icon", "order"]
+    },
+    "Thread": {
+      "title": "Thread",
+      "description": "Forum thread",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "categoryId": { "type": "string" },
+        "viewCount": { "type": "integer" },
+        "replyCount": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "content", "authorId", "authorName", "categoryId", "createdAt"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "Thread comment",
+      "type": "object",
+      "properties": {
+        "content": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "threadId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["content", "authorId", "authorName", "threadId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Forum categories"
+    },
+    "threads/{threadId}": {
+      "schema": "Thread",
+      "description": "Forum threads"
+    },
+    "threads/{threadId}/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Comments on a thread"
+    }
+  }
+}

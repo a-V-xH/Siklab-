@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: var(--brand-primary);
+}
+
+:root {
+  --brand-primary: #FF4E00; /* Orange default */
+  --bg-app: #0A0A0A;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+.light {
+  --brand-primary: #0077FF; /* Blue Sulphur / Azure */
+  --bg-app: #F5F7FA;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A5568;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-bg: #FFFFFF;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-x-180 {
+    transform: rotateX(180deg);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--bg-app)] text-[var(--text-primary)] antialiased transition-colors duration-300;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2A2A2A;
+}
